@@ -1,0 +1,321 @@
+.main-page {
+  width: 100%;
+  height: 100%;
+}
+.flex {
+  display: flex;
+}
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dir-col {
+  flex-direction: column;
+}
+.dir-row {
+  flex-direction: row;
+}
+.payment-modal-wrapper {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  background-color: white;
+  width: 90%;
+  height: 90%;
+  padding: 3rem 2.5rem;
+  max-width: 1000px;
+  margin: 5rem auto;
+  gap: 3rem;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 13px -2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 13px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 13px -2px rgba(0, 0, 0, 0.3);
+  /* flex-direction: column; */
+}
+section {
+  flex: 7;
+}
+
+aside {
+  flex: 4;
+  position: relative;
+}
+.logo-timer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon-wrapper {
+  background: var(--primary);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+.logo-wrapper p {
+  font-size: 1.5rem;
+}
+.logo-wrapper p span {
+  font-weight: bold;
+  color: var(--deep-blue);
+}
+
+.timer span {
+  background: var(--deep-blue);
+  color: #ffffff;
+  width: 1.2em;
+  padding: 4px 0;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+}
+.timer span + span {
+  margin-left: 2px;
+}
+.timer em {
+  font-style: normal;
+}
+
+form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+label {
+  width: 280px;
+}
+
+form .card-number-wrapper {
+  justify-content: space-between;
+  align-items: center;
+}
+
+label p {
+  font-weight: 500;
+  color: var(--deep-blue);
+  letter-spacing: 0.4px;
+}
+
+label small {
+  font-weight: 400;
+  opacity: 0.6;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+form .edit {
+  align-items: center;
+  justify-content: space-between;
+  color: var(--primary);
+  gap: 5px;
+}
+input {
+  border-radius: 4px;
+  padding: 1.2em;
+  height: 45px;
+  font-size: 0.8rem;
+  border: 1px solid var(--light-grey);
+  text-align: center;
+  width: 100%;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+.card-number-input-wrapper {
+  align-items: center;
+  justify-content: space-between;
+  background: #fafafa;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  padding: 1.2em;
+  height: 45px;
+}
+
+.card-number-input-wrapper input {
+  max-width: 40px;
+  height: 25px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+}
+
+form .cvv-number {
+  justify-content: space-between;
+  align-items: center;
+}
+
+form .cvv-input-icon-wrapper,
+.expiry-date-inputs-wrapper,
+.cvv-input-icon-wrapper {
+  flex: 0.9;
+  position: relative;
+}
+.cvv-input-icon-wrapper input {
+  width: 100%;
+  padding-right: 50px;
+}
+.cvv-input-icon-wrapper input::placeholder {
+  text-align: center;
+}
+.cvv-number .cvv-icon {
+  position: absolute;
+  top: 0;
+  transform: translate(-200%, 50%);
+}
+
+form .expiry-date {
+  justify-content: space-between;
+  align-items: center;
+}
+.expiry-date-inputs-wrapper {
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.css-button-sliding-to-top {
+  /* min-width: 130px; */
+  background-color: var(--primary);
+  height: 45px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  /* background: #fff; */
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  color: white;
+}
+.css-button-sliding-to-top:hover {
+  color: #fff;
+  border: 2px solid var(--deep-blue);
+}
+.css-button-sliding-to-top:hover:after {
+  height: 100%;
+}
+.css-button-sliding-to-top:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background: var(--deep-blue);
+}
+
+/* side card with details styles */
+.card-transaction-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8rem;
+  position: relative;
+}
+
+.card {
+  background: white;
+  height: 280px;
+  width: 230px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  transform: translate(21%, 0%);
+  border-radius: 20px;
+  padding: 1.5rem 1.2rem;
+  -webkit-box-shadow: 1px 1px 10px -3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 10px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 10px -3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+.card-transaction-wrapper .blue-nudge {
+  background-color: var(--primary);
+  width: 80px;
+  height: 10px;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  transform: translate(155%, 0);
+}
+
+.sim-wifi {
+  justify-content: space-between;
+  align-items: center;
+}
+.card-details {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 1.2rem;
+}
+
+.date-logo {
+  justify-content: space-between;
+  align-content: center;
+}
+
+.transactiondetails {
+  padding-top: 12rem;
+  flex-direction: column;
+  background: #f0f0f0e7;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.horizontal-dash {
+  border-top: 1.5px dashed #aaa;
+  border-width: 1px 10px;
+  margin: 1.5rem 0.8em;
+}
+
+.you-have-top-pay {
+  padding: 1.5rem;
+}
+
+@media (max-width: 1040px) {
+  .payment-modal-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .cvv-number {
+    flex-direction: column;
+  }
+  label {
+    width: 100%;
+  }
+  form .cvv-input-icon-wrapper,
+  .expiry-date-inputs-wrapper,
+  .cvv-input-icon-wrapper {
+    width: 100%;
+    flex: auto;
+  }
+  .expiry-date {
+    flex-direction: column;
+  }
+  .logo-timer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

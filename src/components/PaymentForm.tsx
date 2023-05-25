@@ -7,7 +7,7 @@ import { TbGridDots } from 'react-icons/tb';
 
 export const PaymentForm = () => {
   const numberOfInputs = 4;
-  const [cardNumbersCompleted, setCardNumbersCompleted] = useState(false);
+
   const [remainingSeconds, setRemainingSeconds] = useState(5 * 60);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export const PaymentForm = () => {
                 ))}
               </div>
             </div>
-            <BsFillPatchCheckFill color={cardNumbersCompleted ? 'teal' : 'blue'} />
+            <BsFillPatchCheckFill color={'blue'} />
           </div>
         </div>
 

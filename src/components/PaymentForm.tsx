@@ -22,13 +22,16 @@ export const PaymentForm = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      if (remainingSeconds < 1) {
+        setRemainingSeconds(5 * 60);
+      }
       setRemainingSeconds((prevSeconds) => prevSeconds - 1);
     }, 1000);
 
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [remainingSeconds]);
 
   const formatTime = () => {
     const minutes = Math.floor(remainingSeconds / 60);
@@ -46,7 +49,7 @@ export const PaymentForm = () => {
     if (inputValues[inp.name]?.length >= 3) {
       inputRefs[index + 1]?.current?.focus();
     }
-    setEveryCardInputCompleted(Object.values(inputValues).every((val) => val.length === 4));
+    setEveryCardInputCompleted(Object.values(inputValues).every((val) => val.length >= 4));
   };
 
   return (

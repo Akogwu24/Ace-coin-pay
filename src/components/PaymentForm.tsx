@@ -2,7 +2,7 @@ import { GiSwipeCard } from 'react-icons/gi';
 import { FormLabel } from './FormLabel';
 import { MdEdit } from 'react-icons/md';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
-import { ChangeEvent, Fragment, RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, Fragment, useEffect, useRef, useState } from 'react';
 import { TbGridDots } from 'react-icons/tb';
 import { InputArray, inputArray } from './extras';
 

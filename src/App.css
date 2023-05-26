@@ -142,7 +142,7 @@ input::placeholder {
 }
 
 .card-number-input-wrapper input {
-  max-width: 40px;
+  max-width: 60px;
   height: 25px;
   padding: 0 4px;
   border: none;

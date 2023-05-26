@@ -2,23 +2,36 @@ import { GiSwipeCard } from 'react-icons/gi';
 import { FormLabel } from './FormLabel';
 import { MdEdit } from 'react-icons/md';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
-import { Fragment, useEffect, useState } from 'react';
+import { ChangeEvent, Fragment, useEffect, useRef, useState } from 'react';
 import { TbGridDots } from 'react-icons/tb';
+import { InputArray, inputArray } from './extras';
+
+type InputValuesType = {
+  input1: string;
+  input2: string;
+  input3: string;
+  input4: string;
+};
 
 export const PaymentForm = () => {
+  const [inputValues, setInputValues] = useState({ input1: '', input2: '', input3: '', input4: '' });
+  const inputRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)]; // Add more
   const numberOfInputs = 4;
-
   const [remainingSeconds, setRemainingSeconds] = useState(5 * 60);
+  const [everyCardInputCompleted, setEveryCardInputCompleted] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      if (remainingSeconds < 1) {
+        setRemainingSeconds(5 * 60);
+      }
       setRemainingSeconds((prevSeconds) => prevSeconds - 1);
     }, 1000);
 
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [remainingSeconds]);
 
   const formatTime = () => {
     const minutes = Math.floor(remainingSeconds / 60);
@@ -28,6 +41,15 @@ export const PaymentForm = () => {
     const formattedSeconds = String(seconds).padStart(2, '0');
 
     return { formattedMinutes, formattedSeconds };
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, index: number, inp: InputArray): void => {
+    setInputValues((prev: InputValuesType) => ({ ...prev, [e.target.name]: e.target.value }));
+    //@ts-ignore
+    if (inputValues[inp.name]?.length >= 3) {
+      inputRefs[index + 1]?.current?.focus();
+    }
+    setEveryCardInputCompleted(Object.values(inputValues).every((val) => val.length >= 4));
   };
 
   return (
@@ -68,15 +90,21 @@ export const PaymentForm = () => {
               </svg>
 
               <div className='flex card-number-inputs-container' style={{ gap: '6px', marginLeft: '1.5rem', alignItems: 'center' }}>
-                {[...Array(numberOfInputs)].map((_, i) => (
+                {inputArray.map((inp, i) => (
                   <Fragment key={i}>
-                    <input placeholder='0000' />
+                    <input
+                      onChange={(e) => handleInputChange(e, i, inp)}
+                      autoFocus={i === 0 ? true : false}
+                      ref={inputRefs[i]}
+                      placeholder={inp.placeholder}
+                      name={inp.name}
+                    />
                     {i < numberOfInputs - 1 ? <span>-</span> : null}
                   </Fragment>
                 ))}
               </div>
             </div>
-            <BsFillPatchCheckFill color={'blue'} />
+            <BsFillPatchCheckFill color={everyCardInputCompleted ? 'teal' : 'blue'} />
           </div>
         </div>
 

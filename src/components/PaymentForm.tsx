@@ -45,7 +45,7 @@ export const PaymentForm = () => {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>, index: number, inp: InputArray): void => {
     setInputValues((prev: InputValuesType) => ({ ...prev, [e.target.name]: e.target.value }));
-
+    //@ts-ignore
     if (inputValues[inp.name]?.length >= 3) {
       inputRefs[index + 1]?.current?.focus();
     }
